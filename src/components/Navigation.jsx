@@ -3,8 +3,7 @@ import React from "react";
 
 export default function Navigation() {
   return (
-    <div className="pb-3 flex align-middle">
-      <h1 className="text-3xl font-bold">Google</h1>
+    <div className="flex items-center">
       <button className="mx-6" onClick={() => console.log("sacha")}>
         Flights
       </button>

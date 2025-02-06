@@ -1,17 +1,17 @@
 // Librairies imports
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
 // Components
-import App from "./components/App";
+import App from "./App";
 
 // Styles
 import "./index.css";
 
-// Contexts
+// Contexts Providers
+import ThemeProvider from "./contexts/ThemeContext";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
+  <ThemeProvider>
     <App />
-  </StrictMode>
+  </ThemeProvider>
 );
