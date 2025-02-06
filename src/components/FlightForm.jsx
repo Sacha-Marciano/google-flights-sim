@@ -19,9 +19,10 @@ export default function FlightForm() {
   };
 
   return (
-    <div className="p-4 pb-8 space-y-4 border-black dark:border-gray-400 dark:bg-gray-600 border-b-2 rounded-lg flex flex-col items-center absolute bottom-2 w-full">
-      <h1 className="text-6xl  dark:text-gray-300">Flights</h1>
-
+    <div className="p-4 pb-8 space-y-4 border-black dark:border-gray-400  border-b-2 rounded-lg flex flex-col items-center absolute bottom-2 w-full">
+      <h1 className="text-6xl font-extralight text-sky-700  dark:text-gray-300 mb-8">
+        Flights
+      </h1>
       {/* selects */}
       <div className="flex gap-2 items-center justify-center ">
         {/* Round Trip select */}
@@ -108,6 +109,7 @@ export default function FlightForm() {
           name="returnDate"
           onChange={handleInputChange}
           className="p-2 rounded-r-lg"
+          disabled={inputs?.trip === "one way"}
         />
       </div>
       {/* Submit */}
