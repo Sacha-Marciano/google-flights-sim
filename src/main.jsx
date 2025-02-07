@@ -8,10 +8,10 @@ import App from "./App";
 import "./index.css";
 
 // Contexts Providers
-import ThemeProvider from "./contexts/ThemeContext";
+import FlightProvider from "./context/FlightContext";
 
 createRoot(document.getElementById("root")).render(
-  <ThemeProvider>
+  <FlightProvider>
     <App />
-  </ThemeProvider>
+  </FlightProvider>
 );
