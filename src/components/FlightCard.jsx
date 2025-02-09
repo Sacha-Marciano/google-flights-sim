@@ -1,5 +1,5 @@
 //Librairies import
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 // Context

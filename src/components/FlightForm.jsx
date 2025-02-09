@@ -1,5 +1,5 @@
 //Librairies import
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 
 // Components
 import CustomAutocomplete from "./CustomAutocomplete";

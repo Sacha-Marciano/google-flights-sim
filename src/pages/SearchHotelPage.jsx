@@ -1,6 +1,3 @@
-//Librairies import
-import React from "react";
-
 // Components
 import FlightForm from "../components/FlightForm";
 

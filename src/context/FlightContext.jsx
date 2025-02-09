@@ -3,7 +3,6 @@ import { createContext, useEffect, useState } from "react";
 
 // API services
 import { getFlightsByTrip, getFlightdetails } from "../api/rapidapi";
-import { duration } from "@mui/material";
 
 // Create context
 export const FlightContext = createContext(null);
@@ -69,7 +68,7 @@ export default function FlightProvider({ children }) {
           setLoading(false);
         });
     }
-  }, [searchFlight]);
+  }, [searchFlight, sessionId]);
 
   return (
     <FlightContext.Provider

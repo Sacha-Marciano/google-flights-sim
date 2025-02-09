@@ -1,11 +1,9 @@
 //Librairies import
-import React from "react";
+import { Link } from "react-router-dom";
 
 // Components
 import Navigation from "./Navigation";
 import ThemeToggle from "./ThemeToggle ";
-import { Link } from "react-router-dom";
-// import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (

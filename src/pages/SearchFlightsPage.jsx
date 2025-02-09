@@ -1,5 +1,5 @@
 //Librairies import
-import React, { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 
 // Components
 import FlightForm from "../components/FlightForm";

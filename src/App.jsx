@@ -1,21 +1,14 @@
 // Librairies imports
-import { useContext, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // Pages
 import SearchFlightsPage from "./pages/SearchFlightsPage";
 import SearchHotelsPage from "./pages/SearchHotelPage";
 import FlightDetailsPage from "./pages/FlightDetailsPage";
-import Footer from "./components/Footer";
-
-// Contexts
-
-// API instances
-
-// Methods
 
 function App() {
   return (

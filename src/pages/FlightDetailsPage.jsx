@@ -1,5 +1,5 @@
 //Librairies import
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 // Componenta
 import LoadingComponent from "../components/LoadingComponent";
@@ -14,17 +14,8 @@ export default function FlightDetailsPage() {
 
   const { flightDetails, loading } = useContext(FlightContext);
 
-  const {
-    destinationImage,
-    departure,
-    arrival,
-    destination,
-    layovers,
-    origin,
-    segments,
-    duration,
-    price,
-  } = flightDetails;
+  const { destinationImage, destination, layovers, segments, duration, price } =
+    flightDetails;
 
   const handleBooking = () => {
     setButtonText("Booked !");
