@@ -15,7 +15,7 @@ function App() {
     <div className="min-h-[100vh] bg-orange-300 dark:bg-gray-900 dark:text-white">
       <Header />
       <Routes>
-        <Route path="/" element={<SearchFlightsPage />} />
+        <Route path="/google-flights-sim" element={<SearchFlightsPage />} />
         <Route path="/hotels" element={<SearchHotelsPage />} />
         <Route path="/details/:id" element={<FlightDetailsPage />} />
       </Routes>
