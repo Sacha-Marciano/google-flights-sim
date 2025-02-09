@@ -12,12 +12,14 @@ import RepeatOnIcon from "@mui/icons-material/RepeatOn";
 import PersonIcon from "@mui/icons-material/Person";
 import FlightClassIcon from "@mui/icons-material/FlightClass";
 import { Search } from "@mui/icons-material";
+import { Tune } from "@mui/icons-material";
 
 export default function FlightForm() {
   const [inputs, setInputs] = useState({
     trip: "round trip",
     pax: "0",
     flightClass: "economy",
+    sortBy: "best",
   });
 
   // Context subscription
@@ -94,7 +96,7 @@ export default function FlightForm() {
           <select
             className="dark:text-gray-600 p-2 rounded-md"
             id="flightClass"
-            value={inputs?.class || "economy"}
+            value={inputs?.class}
             label="Flight Class"
             name="flightClass"
             onChange={(evt) => {
@@ -104,6 +106,27 @@ export default function FlightForm() {
             <option value={"economy"}>Economy</option>
             <option value={"premium"}>Premium</option>
             <option value={"business"}>Business</option>
+          </select>
+        </div>
+        {/* Filter select */}
+        <div className="flex items-center gap-4">
+          <label htmlFor="filters">
+            <Tune />
+          </label>
+          <select
+            className="dark:text-gray-600 p-2 rounded-md"
+            id="filters"
+            value={inputs?.sortBy || "best"}
+            label="Filters"
+            name="sortBy"
+            onChange={(evt) => {
+              handleInputChange(evt.target.name, evt.target.value);
+            }}
+          >
+            <option value={"best"}>Best</option>
+            <option value={"fastest"}>Fastest</option>
+            <option value={"price_low"}>Lowest Price</option>
+            <option value={"price_high"}>Highest Price</option>
           </select>
         </div>
       </div>

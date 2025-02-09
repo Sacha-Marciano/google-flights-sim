@@ -31,6 +31,7 @@ const getFlightsByTrip = async ({
   flightClass,
   pax,
   returnDate,
+  sortBy,
 }) => {
   try {
     const response = await axios.request({
@@ -49,7 +50,7 @@ const getFlightsByTrip = async ({
         date: departDate,
         return: returnDate,
         limit: "50",
-        sortBy: "price_low",
+        sortBy: sortBy,
       },
       headers,
     });
