@@ -9,18 +9,10 @@ A React-based web application that simulates Google Flights, built with **Vite**
    git clone https://github.com/yourusername/google-flights-sim.git
    cd google-flights-sim
    Install dependencies:
+   npm install
+   Start the development server:
+   npm run dev
    ```
-
-sh
-Copy
-Edit
-npm install
-Start the development server:
-
-sh
-Copy
-Edit
-npm run dev
 
 🛠️ Tech Stack
 
