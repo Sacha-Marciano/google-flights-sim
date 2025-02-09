@@ -1,9 +1,14 @@
 //Librairies import
 import React, { useContext, useEffect, useState } from "react";
-import { FlightContext } from "../context/FlightContext";
+
+// Componenta
+import LoadingComponent from "../components/LoadingComponent";
 
 // Context
+import { FlightContext } from "../context/FlightContext";
 
+// MUI Icons
+import { FlightLand, FlightTakeoff } from "@mui/icons-material";
 export default function FlightDetailsPage() {
   const [buttonText, setButtonText] = useState("Book Now !");
 
@@ -18,6 +23,7 @@ export default function FlightDetailsPage() {
     origin,
     segments,
     duration,
+    price,
   } = flightDetails;
 
   const handleBooking = () => {
@@ -31,9 +37,7 @@ export default function FlightDetailsPage() {
   };
 
   return loading ? (
-    <div>
-      <h1>Loading</h1>
-    </div>
+    <LoadingComponent />
   ) : (
     <div className="flex flex-col items-center relative gap-4 pb-4">
       <img
@@ -41,7 +45,7 @@ export default function FlightDetailsPage() {
         alt="Destination Image"
         className=" dark:opacity-50"
       />
-      <div className=" flex flex-col items-center relative bottom-10 bg-white dark:bg-gray-500 rounded-full p-4">
+      <div className=" flex flex-col items-center relative bottom-10 bg-white dark:bg-gray-500 rounded-full p-6">
         <h1 className="text-3xl font-bold">
           Your flight to {destination?.city}
         </h1>
@@ -60,7 +64,7 @@ export default function FlightDetailsPage() {
               Flight from {item.origin.name}
             </h2>
             <p>
-              Departure :{item.departure.split("T")[0]} at{" "}
+              <FlightTakeoff /> : {item.departure.split("T")[0]} at{" "}
               {item.departure.split("T")[1]}
             </p>
             <p>Flight Number : {item.flightNumber}</p>
@@ -69,7 +73,7 @@ export default function FlightDetailsPage() {
               Land in {item.destination.name}
             </h2>
             <p>
-              Arrival : {item.arrival.split("T")[0]} at{" "}
+              <FlightLand /> : {item.arrival.split("T")[0]} at{" "}
               {item.arrival.split("T")[1]}
             </p>
             {index < segments.length - 1 ? (
@@ -87,8 +91,9 @@ export default function FlightDetailsPage() {
       <button
         onClick={handleBooking}
         disabled={buttonText === "Booked !"}
-        className="text-3xl bg-sky-400 dark:bg-gray-500 font-bold rounded-lg p-4 disabled:opacity-50"
+        className="text-3xl bg-sky-400 dark:text-sky-400 dark:bg-gray-500 font-bold rounded-lg p-4 disabled:opacity-50"
       >
+        {buttonText === "Booked !" ? "" : "Only " + price + " "}
         {buttonText}
       </button>
     </div>

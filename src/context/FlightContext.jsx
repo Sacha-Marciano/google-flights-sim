@@ -15,35 +15,38 @@ export default function FlightProvider({ children }) {
   const [sessionId, setSessionId] = useState("");
   const [searchFlight, setSearchFlight] = useState({});
   const [flightDetails, setFlightDetails] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Each time the user makes a query search for flights
   useEffect(() => {
     if (searchQuery.pax) {
-      getFlightsByTrip(searchQuery).then((res) => {
-        const flightResults = res.itineraries.map((item) => {
-          const hours = Math.floor(item.legs[0].durationInMinutes / 60);
-          const minutes = item.legs[0].durationInMinutes % 60;
+      setLoading(true);
+      getFlightsByTrip(searchQuery)
+        .then((res) => {
+          const flightResults = res.itineraries.map((item) => {
+            const hours = Math.floor(item.legs[0].durationInMinutes / 60);
+            const minutes = item.legs[0].durationInMinutes % 60;
 
-          return {
-            id: item.id,
-            price: item.price.formatted,
-            departCityCode: item.legs[0].origin.id,
-            arrivalCityCode: item.legs[0].destination.id,
-            duration: `${hours > 1 ? hours + " h" : ""} ${minutes} m`,
-            stopCount: item.legs[0].stopCount,
-            date: item.legs[0].departure.split("T")[0],
-          };
-        });
-        setSessionId(res.context.sessionId);
-        setDisplayFlights(flightResults);
-      });
+            return {
+              id: item.id,
+              price: item.price.formatted,
+              departCityCode: item.legs[0].origin.id,
+              arrivalCityCode: item.legs[0].destination.id,
+              duration: `${hours > 1 ? hours + " h" : ""} ${minutes} m`,
+              stopCount: item.legs[0].stopCount,
+              date: item.legs[0].departure.split("T")[0],
+            };
+          });
+          setSessionId(res.context.sessionId);
+          setDisplayFlights(flightResults);
+        })
+        .finally(() => setLoading(false));
     }
   }, [searchQuery]);
 
   useEffect(() => {
-    setLoading(true);
     if (searchFlight.itinerayId) {
+      setLoading(true);
       getFlightdetails(sessionId, searchFlight.itinerayId, searchFlight.legs)
         .then((res) => {
           const legs = res.legs[0];

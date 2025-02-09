@@ -38,68 +38,74 @@ export default function FlightForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-4 pb-8 space-y-4 border-black dark:border-gray-400  border-b-2 rounded-lg flex flex-col items-center absolute bottom-2 w-full"
+      className="mb-4 md:mb-0 p-4 pb-8 space-y-4 border-black dark:border-gray-400  border-b-2 rounded-lg flex flex-col items-center md:absolute bottom-2 w-full"
     >
       <h1 className="text-6xl font-extralight text-sky-700  dark:text-gray-300 mb-8">
         Flights
       </h1>
-      {/* selects */}
-      <div className="flex gap-2 items-center justify-center ">
+      {/* Selects */}
+      <div className="flex flex-col md:flex-row gap-2 items-start md:items-center justify-center ">
         {/* Round Trip select */}
-        <label htmlFor="trip-select">{<RepeatOnIcon />}</label>
-        <select
-          className="p-2 rounded-md mr-4  dark:text-gray-600"
-          id="trip-select"
-          value={inputs?.trip}
-          label="Round trip"
-          name="trip"
-          onChange={(evt) => {
-            handleInputChange(evt.target.name, evt.target.value);
-          }}
-        >
-          <option value={"round trip"}>Round Trip</option>
-          <option value={"one way"}>One Way</option>
-        </select>
+        <div className="flex items-center gap-4">
+          <label htmlFor="trip-select">{<RepeatOnIcon />}</label>
+          <select
+            className="p-2 rounded-md mr-4  dark:text-gray-600"
+            id="trip-select"
+            value={inputs?.trip}
+            label="Round trip"
+            name="trip"
+            onChange={(evt) => {
+              handleInputChange(evt.target.name, evt.target.value);
+            }}
+          >
+            <option value={"round trip"}>Round Trip</option>
+            <option value={"one way"}>One Way</option>
+          </select>
+        </div>
         {/* Passenger select */}
-        <label htmlFor="pax-count">
-          <PersonIcon />
-        </label>
-        <select
-          className="p-2 rounded-md mr-4 dark:text-gray-600"
-          id="pax-count"
-          value={inputs?.pax}
-          label="Pax Count"
-          name="pax"
-          onChange={(evt) => {
-            handleInputChange(evt.target.name, evt.target.value);
-          }}
-        >
-          {Array(10)
-            .fill(null)
-            .map((_, index) => (
-              <option value={`${index}`} key={index}>
-                {index + 1}
-              </option>
-            ))}
-        </select>
+        <div className="flex items-center gap-4">
+          <label htmlFor="pax-count">
+            <PersonIcon />
+          </label>
+          <select
+            className="p-2 rounded-md mr-4 dark:text-gray-600"
+            id="pax-count"
+            value={inputs?.pax}
+            label="Pax Count"
+            name="pax"
+            onChange={(evt) => {
+              handleInputChange(evt.target.name, evt.target.value);
+            }}
+          >
+            {Array(10)
+              .fill(null)
+              .map((_, index) => (
+                <option value={`${index}`} key={index}>
+                  {index + 1}
+                </option>
+              ))}
+          </select>
+        </div>
         {/* Class select */}
-        <label htmlFor="flightClass">
-          <FlightClassIcon />
-        </label>
-        <select
-          className="dark:text-gray-600 p-2 rounded-md"
-          id="flightClass"
-          value={inputs?.class || "economy"}
-          label="Flight Class"
-          name="flightClass"
-          onChange={(evt) => {
-            handleInputChange(evt.target.name, evt.target.value);
-          }}
-        >
-          <option value={"economy"}>Economy</option>
-          <option value={"premium"}>Premium</option>
-          <option value={"business"}>Business</option>
-        </select>
+        <div className="flex items-center gap-4">
+          <label htmlFor="flightClass">
+            <FlightClassIcon />
+          </label>
+          <select
+            className="dark:text-gray-600 p-2 rounded-md"
+            id="flightClass"
+            value={inputs?.class || "economy"}
+            label="Flight Class"
+            name="flightClass"
+            onChange={(evt) => {
+              handleInputChange(evt.target.name, evt.target.value);
+            }}
+          >
+            <option value={"economy"}>Economy</option>
+            <option value={"premium"}>Premium</option>
+            <option value={"business"}>Business</option>
+          </select>
+        </div>
       </div>
       {/* Inputs */}
       <div className="flex flex-col md:flex-row  items-center justify-center dark:text-gray-600">
@@ -140,7 +146,7 @@ export default function FlightForm() {
       {/* Submit */}
       <button
         type="submit"
-        className="rounded-full bg-sky-400 p-2 justify-self-end text-white dark:text-gray-900 absolute -bottom-5"
+        className="rounded-full bg-sky-400 p-2 justify-self-end text-white dark:text-gray-900 absolute -bottom-2 md:-bottom-5 "
       >
         <Search />
         Explore

@@ -9,6 +9,7 @@ import Header from "./components/Header";
 import SearchFlightsPage from "./pages/SearchFlightsPage";
 import SearchHotelsPage from "./pages/SearchHotelPage";
 import FlightDetailsPage from "./pages/FlightDetailsPage";
+import Footer from "./components/Footer";
 
 // Contexts
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/hotels" element={<SearchHotelsPage />} />
         <Route path="/details/:id" element={<FlightDetailsPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
