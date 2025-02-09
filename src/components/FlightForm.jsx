@@ -104,7 +104,7 @@ export default function FlightForm() {
             }}
           >
             <option value={"economy"}>Economy</option>
-            <option value={"premium"}>Premium</option>
+            <option value={"premium_economy"}>Premium</option>
             <option value={"business"}>Business</option>
           </select>
         </div>
