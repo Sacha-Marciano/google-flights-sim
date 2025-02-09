@@ -4,14 +4,19 @@ import React from "react";
 // Components
 import Navigation from "./Navigation";
 import ThemeToggle from "./ThemeToggle ";
+import { Link } from "react-router-dom";
 // import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
-    <div className="w-full pb-3 flex align-middle justify-around">
-      <h1 className="text-3xl font-bold">Google</h1>
-      <Navigation />
-      <ThemeToggle />
+    <div className="w-full p-4 flex align-middle ">
+      <Link to="/" className="text-5xl font-bold text-sky-400">
+        GoogleLike
+      </Link>
+      <div className="flex justify-between flex-1">
+        <Navigation />
+        <ThemeToggle />
+      </div>
     </div>
   );
 }

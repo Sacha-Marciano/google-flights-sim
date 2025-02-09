@@ -1,9 +1,14 @@
 // Librairies imports
 import { useContext, useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 // Components
 import Header from "./components/Header";
-import Main from "./components/Main";
+
+// Pages
+import SearchFlightsPage from "./pages/SearchFlightsPage";
+import SearchHotelsPage from "./pages/SearchHotelPage";
+import FlightDetailsPage from "./pages/FlightDetailsPage";
 
 // Contexts
 
@@ -13,9 +18,13 @@ import Main from "./components/Main";
 
 function App() {
   return (
-    <div className="h-[100vh] dark:bg-gray-900 dark:text-white">
+    <div className="min-h-[100vh] bg-orange-300 dark:bg-gray-900 dark:text-white">
       <Header />
-      <Main />
+      <Routes>
+        <Route path="/" element={<SearchFlightsPage />} />
+        <Route path="/hotels" element={<SearchHotelsPage />} />
+        <Route path="/details/:id" element={<FlightDetailsPage />} />
+      </Routes>
     </div>
   );
 }

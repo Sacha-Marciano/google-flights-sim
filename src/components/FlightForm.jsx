@@ -16,7 +16,7 @@ import { Search } from "@mui/icons-material";
 export default function FlightForm() {
   const [inputs, setInputs] = useState({
     trip: "round trip",
-    pax: "1",
+    pax: "0",
     flightClass: "economy",
   });
 

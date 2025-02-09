@@ -1,13 +1,16 @@
 //Librairies import
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navigation() {
   return (
-    <div className="flex items-center">
-      <button className="mx-6" onClick={() => console.log("sacha")}>
+    <div className="flex items-center text-3xl font-semibold text-sky-400 ">
+      <Link to="/" className="mx-6 hover:text-black dark:hover:text-white">
         Flights
-      </button>
-      <button className="">Hotels</button>
+      </Link>
+      <Link to="/hotels" className="hover:text-black dark:hover:text-white">
+        Hotels
+      </Link>
     </div>
   );
 }
